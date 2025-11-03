@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-  <button class="doorbell-button" onclick="triggerDoorbell()">按此呼叫屋主</button>
+  <button class="doorbell-button" onclick="triggerDoorbell()">叮咚！動方！</button>
 
   <script>
     function triggerDoorbell() {
@@ -35,14 +35,16 @@
 
       fetch(TELEGRAM_URL)
         .then(() => {
-          alert('呼叫成功！屋主已收到通知。');
+          alert('叮咚！動方！');
         })
         .catch(error => {
           // 由於網頁發送跨域請求時，瀏覽器可能會丟出錯誤，但訊息可能已發出。
           console.error('Error sending message:', error);
-          alert('呼叫成功！屋主已收到通知。');
+          alert('叮咚！動方！');
         });
     }
   </script>
 </body>
+
 </html>
+
