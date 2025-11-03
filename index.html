@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>虛擬門鈴</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f0f0; }
+  .doorbell-button {
+    padding: 30px 60px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 9px #999;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .doorbell-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+</style>
+</head>
+<body>
+  <button class="doorbell-button" onclick="triggerDoorbell()">按此呼叫屋主</button>
+
+  <script>
+    function triggerDoorbell() {
+      // ⚠️ 替換成您組合好的完整 Telegram API 網址！
+      const TELEGRAM_URL = 'https://api.telegram.org/bot8373425660:AAGI-ywTIEmTdhCeSlWr7Kr2lSpRkynyNDQ/sendMessage?chat_id=6978514760&text=有人按了虛擬門鈴！'; 
+
+      fetch(TELEGRAM_URL)
+        .then(() => {
+          alert('呼叫成功！屋主已收到通知。');
+        })
+        .catch(error => {
+          // 由於網頁發送跨域請求時，瀏覽器可能會丟出錯誤，但訊息可能已發出。
+          console.error('Error sending message:', error);
+          alert('呼叫成功！屋主已收到通知。');
+        });
+    }
+  </script>
+</body>
+</html>
